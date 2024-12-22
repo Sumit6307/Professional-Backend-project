@@ -1,1 +1,1 @@
-export const DB_NAME = "videotubenpm i dotenv"
+export const DB_NAME = "videotube"
