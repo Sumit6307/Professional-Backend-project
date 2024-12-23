@@ -2,6 +2,7 @@
 
 import dotenv from "dotenv"
 import connectDB from "./db/index.js";
+import { console } from "inspector";
 
 
 
@@ -11,8 +12,15 @@ dotenv.config( {
 
 
 
-connectDB()
-
+connectDB().
+then( ()=> {
+     app.listen(process.env.PORT || 8000, ()=> {
+        console.log(`Server is running at port : ${process.env.PORT} `)
+     })
+})
+.catch((error)=> {
+  console.log(`Mongodb Connection failed !!!`, err)
+} )
 
 
 /*
