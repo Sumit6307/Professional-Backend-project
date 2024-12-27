@@ -15,5 +15,18 @@ app.use(urlencoded({extended: true, linit : "6kb"}))
 app.use(express.static("public"))
 app.use(cookieParser())
 
+
+// routes
+
+import userRouter from './routes/user.routes.js'
+
+// route declarations
+
+app.use("/api/v1/users", userRouter)              // we cannot user app.get bcz all things are segerate there  1. the routes and both both are in different folders .So we use middleware for this
+
+
+
+
+
 export {app}
 //export default app
