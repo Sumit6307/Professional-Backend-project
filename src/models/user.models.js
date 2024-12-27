@@ -48,7 +48,7 @@ const userSchema = new mongoose.Schema({
           type  : String,              // use bcrypt for encodng and decoding password
           required : [true , "Password is Required"]
       },
-      refershTokens : {
+      refreshToken : {
         type : String
       }
 
@@ -58,7 +58,7 @@ const userSchema = new mongoose.Schema({
 
 userSchema.pre("save", async function (next) {
      if(!this.isModified("password")) return next()
-    this.password = bcrypt.hash(this.password, 10)
+    this.password = await bcrypt.hash(this.password, 10)
     next()
 })
 
@@ -95,4 +95,4 @@ userSchema.methods.isPasswordCorrect = async function (password) {
 
 
 
-export const User = mongoose.model("User", userSchemaserSchema)
+export const User = mongoose.model("User", userSchema)
