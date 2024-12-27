@@ -39,7 +39,7 @@ const registerUser = asyncHandler(async (req,res) => {
           //   check if user already exists : username, email                        
                                   
           
-     const existedUser =  User.findOne({
+     const existedUser =  await User.findOne({
       
            $or : [{ username } , { email }]      // ($or) -> is used to use operator in a simple way
            
@@ -48,6 +48,7 @@ const registerUser = asyncHandler(async (req,res) => {
       if(existedUser) {
           throw new ApiError(409, "User with email or username already exists")
       }
+      console.log(req.files);
        
           //   check for images , check for avatar
                           

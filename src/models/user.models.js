@@ -33,7 +33,7 @@ const userSchema = new mongoose.Schema({
 
    },
 
-    coverimage : {
+    coverImage : {
           type : String         // cloudinary url
     },
       
