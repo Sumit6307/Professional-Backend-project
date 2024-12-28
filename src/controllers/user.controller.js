@@ -54,8 +54,14 @@ const registerUser = asyncHandler(async (req,res) => {
                           
 
     const avatarLocalPath =  req.files?.avatar[0]?.path;
-     const coverImageLocalPath =  req.files?.coverImage[0]?.path;
+    // const coverImageLocalPath =  req.files?.coverImage[0]?.path;    this is unable to resolve the probelm of undefine so we se anothe syntax
 
+    let coverImageLocalPath;
+
+    if(req.files && Array.isArray(req.files.coverImage) && req.files.coverImage.length >  0) {
+         coverImageLocalPath = req.files.coverImage[0].path          // thi is the modification of the cover image to resolve the problem of undefined
+    }
+       
 
      if(!avatarLocalPath) {
           throw new ApiError(400, "Avator file is required")
