@@ -193,7 +193,7 @@ const loginUser  = asyncHandler( async ( req,res) => {
            {
               user : loggedInUser , accessToken , refreshToken     // data
            },
-            "User loggedIn Successfully"
+            "User LoggedIn Successfully"
          )
      )
 })
