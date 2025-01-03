@@ -359,6 +359,9 @@ const updateAccountDetails = asyncHandler (async (req,res)=> {
 
 
 
+
+// User controller
+
 const updateUserAvatar = asyncHandler( async( req,res)=> {
        
     const avatarLocalPath = req.files?.path 
